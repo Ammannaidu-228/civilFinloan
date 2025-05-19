@@ -21,7 +21,7 @@ function Home() {
             if you're not making mistakes then you're not doing anything
           </h2>
         </div>
-        <div className="flex flex-col justify-center items-center mt-10">
+        <div className="flex flex-col justify-center items-center p-3 mt-10">
           <h3 className="text-center text-5xl font-medium text-teal-700">
             An Hub For Your Financial Needs
           </h3>
@@ -33,7 +33,7 @@ function Home() {
           </h5>
         </div>
       </div>
-      <div>
+      <div className="lg:fixed bottom-0 w-full">
         <Footer />
       </div>
     </div>

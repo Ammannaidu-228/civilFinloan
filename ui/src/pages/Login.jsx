@@ -23,7 +23,7 @@ function Login() {
     })
   }
   return (
-    <div>
+    <div className="bg-teal-100 w-full h-screen">
       <div>
         <Navbar />
       </div>
@@ -37,7 +37,7 @@ function Login() {
         <body class="h-full">
         ```
       */}
-          <div className="flex min-h-full flex-1 lg:w-[35rem] shadow-2xl shadow-teal-900 m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
+          <div className="flex min-h-full flex-1 lg:w-[35rem] w-[18rem] shadow-2xl shadow-teal-700 m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full  sm:max-w-sm">
               <h2 className=" text-2xl/9 font-semibold tracking-tight text-gray-900">
                 Login
@@ -113,7 +113,7 @@ function Login() {
           </div>
         </>
       </div>
-      <div className="fixed bottom-0  w-full">
+      <div className="mt-5 fixed bottom-0  w-full">
         <Footer />
       </div>
     </div>
