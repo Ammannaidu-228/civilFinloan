@@ -94,18 +94,18 @@ function Login() {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="flex  justify-center rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex  justify-center rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold text-black shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Log in
                   </button>
                 </div>
               </form>
               {login ? (
-                <p className="text-green-500 mt-5 text-center">
+                <p className="text-green-600 text-shadow-green-400 font-semibold mt-5 text-center">
                   Login Successfull !!! please wait for profile loading...
                 </p>
               ) : (
-                <p className="text-red-500 mt-5 text-center">
+                <p className="text-red-500 mt-5 font-semibold text-center">
                   Details do not exists in our database
                 </p>
               )}
