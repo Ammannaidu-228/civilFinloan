@@ -13,7 +13,7 @@ const serviceSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    details:[
+    detail:[
         {
             type:{
                 type: String,

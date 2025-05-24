@@ -2,28 +2,27 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useState } from "react";
 function Member() {
-
-    const[formData, setFormData] = useState({
-        username: "",
-        mobileNo: "",
-        password: "",
+  const [formData, setFormData] = useState({
+    username: "",
+    mobileNo: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(formData)
-    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
   return (
-    <div className="bg-teal-100">
-        <div >
-<Navbar/>
-        </div>
-        <div className="flex min-h-full flex-1 lg:w-[35rem] shadow-2xl shadow-teal-900 m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="h-screen lg:min-h-full">
+      <div>
+        <Navbar />
+      </div>
+      <div className="flex  flex-1 lg:w-[35rem] w-[18rem] shadow-2xl shadow-gray-500 m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full  sm:max-w-sm">
           <h2 className=" text-2xl/9 font-light tracking-tight text-gray-900">
             Join as a member
@@ -31,9 +30,12 @@ function Member() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form  className="space-y-6">
+          <form className="space-y-6">
             <div>
-              <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="username"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Username
               </label>
               <div className="mt-2">
@@ -51,7 +53,10 @@ function Member() {
             </div>
 
             <div>
-              <label htmlFor="mobileNo" className="block text-sm/6 font-medium text-gray-900">
+              <label
+                htmlFor="mobileNo"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
                 Mobile No:
               </label>
               <div className="mt-2">
@@ -70,7 +75,10 @@ function Member() {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm/6 font-medium text-gray-900"
+                >
                   Password
                 </label>
               </div>
@@ -92,7 +100,7 @@ function Member() {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                className="flex  justify-center rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex  justify-center rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold text-black shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign Up
               </button>
@@ -100,9 +108,10 @@ function Member() {
           </form>
         </div>
       </div>
-        <div className="mt-20">
-            <Footer/>
-        </div>
+          <div className="fixed bottom-0  mt-5 xl:relative w-full">
+          <Footer/>
+
+          </div>
     </div>
   );
 }

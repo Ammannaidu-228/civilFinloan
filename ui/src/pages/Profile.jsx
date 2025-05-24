@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 function Profile() {
   const [login] = useState(true);
-  const[formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     username: "",
     mobileNo: "",
     password: "",
@@ -19,10 +19,10 @@ function Profile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-  }
+  };
 
   return (
-    <div className="bg-teal-100 w-full">
+    <div className="w-full lg:min-h-full h-screen">
       <div>
         <Navbar />
       </div>
@@ -36,13 +36,14 @@ function Profile() {
         <body class="h-full">
         ```
       */}
-          <div className="flex shadow-2xl shadow-teal-500 min-h-full flex-1 lg:w-[35rem] w-[18rem] m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form action="#" method="POST" className="space-y-6">
+          <div className="flex shadow-2xl shadow-teal-500 min-h-full flex-1 lg:w-[35rem] w-[18rem] 
+          m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 lg:px-8">
+            <div>
+              <form action="#" method="POST" className="space-y-6 mb-3">
                 <div>
                   <label
                     htmlFor="username"
-                    className="block text-sm/6 font-medium text-gray-900"
+                    className="block text-sm/6 mt-5 font-medium text-gray-900"
                   >
                     Username:
                   </label>
@@ -128,18 +129,18 @@ function Profile() {
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="flex text-black justify-center rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold  shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="flex text-black justify-center mt-2 rounded-md bg-yellow-500 px-3 py-1.5 text-sm/6 font-semibold  shadow-xs hover:bg-yellow-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     update
                   </button>
                 </div>
               </form>
               {login ? (
-                <p className="text-green-500 mt-5 text-center">
+                <p className="text-green-500 p-5 text-center">
                   Profile updated Successfully
                 </p>
               ) : (
-                <p className="text-red-500 mt-5 text-center">
+                <p className="text-red-500  text-center">
                   Details do not exists in our database
                 </p>
               )}
@@ -147,9 +148,9 @@ function Profile() {
           </div>
         </>
       </div>
-      <footer className="bottom-0 mt-5 w-full">
+      <div className="fixed bottom-0 lg:relative  mt-5 w-full">
         <Footer />
-      </footer>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import api from "../api/backendApi";
+import { useNavigate } from "react-router-dom";
 function Login() {
-  const [login] = useState(true);
+  const [click, setClick] = useState(false);
+  const navigate = useNavigate();
+  const [successResponse, setSuccessResponse] = useState("");
+  const [errorResponse, setErrorResponse] = useState("");
   const [formData, setFormData] = useState({
-    userId: "",
+    email: "",
     password: "",
   });
   const handleChange = (e) => {
@@ -14,16 +18,37 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData);
+    try {
+      const response = await api.post("/member/login", formData);
+      console.log(response.data);
+      if (response.status === 200) {
+        setClick(true);
+        alert(response?.data?.status);
+        setSuccessResponse(response?.data?.status);
+        navigate("/home");
+        // Redirect to profile page or perform any other action
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      if (error.response) {
+        setClick(false);
+        setErrorResponse(error?.response?.data?.message);
+      } else {
+        setErrorResponse("An error occurred. Please try again.");
+      }
+    }
+    console.log("Success response:", successResponse);
+    console.log("Error response:", errorResponse);
     setFormData({
-      userId: "",
+      email: "",
       password: "",
-    })
-  }
+    });
+  };
   return (
-    <div className="bg-teal-100 w-full h-screen">
+    <div className="w-full lg:min-h-full h-screen">
       <div>
         <Navbar />
       </div>
@@ -37,7 +62,7 @@ function Login() {
         <body class="h-full">
         ```
       */}
-          <div className="flex min-h-full flex-1 lg:w-[35rem] w-[18rem] shadow-2xl shadow-teal-700 m-auto mt-10 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
+          <div className="flex  flex-1 lg:w-[35rem] w-[18rem] shadow-2xl shadow-gray-500 m-auto mt-5 rounded-xl bg-gray-100 border-0 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full  sm:max-w-sm">
               <h2 className=" text-2xl/9 font-semibold tracking-tight text-gray-900">
                 Login
@@ -48,20 +73,20 @@ function Login() {
               <form action="#" method="POST" className="space-y-6">
                 <div>
                   <label
-                    htmlFor="userId"
+                    htmlFor="email"
                     className="block text-sm/6 font-medium text-gray-900"
                   >
-                    User ID:
+                    Email:
                   </label>
                   <div className="mt-2">
                     <input
-                      id="userId"
-                      name="userId"
-                      type="userId"
+                      id="email"
+                      name="email"
+                      type="email"
                       required
                       onChange={handleChange}
-                      value={formData.userId}
-                      autoComplete="userId"
+                      value={formData.email}
+                      autoComplete="email"
                       className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                     />
                   </div>
@@ -100,20 +125,20 @@ function Login() {
                   </button>
                 </div>
               </form>
-              {login ? (
+              {click ? (
                 <p className="text-green-600 text-shadow-green-400 font-semibold mt-5 text-center">
-                  Login Successfull !!! please wait for profile loading...
+                  {successResponse}
                 </p>
               ) : (
-                <p className="text-red-500 mt-5 font-semibold text-center">
-                  Details do not exists in our database
+                <p className="text-red-500 p-1  font-semibold text-center">
+                  {errorResponse}
                 </p>
               )}
             </div>
           </div>
         </>
       </div>
-      <div className="mt-5 fixed bottom-0  w-full">
+          <div className="fixed bottom-0  w-full">
         <Footer />
       </div>
     </div>

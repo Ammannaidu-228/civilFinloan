@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
+import CivilFinal from "../assets/CivilFinal.jpg";
 function Home() {
   return (
-    <div className="flex flex-col bg-gray-100">
+    <div className="flex flex-col">
       <div>
         <Navbar />
       </div>
@@ -12,11 +12,10 @@ function Home() {
         <div
           className="flex sm:h-[50rem] lg:h-[20rem] h-[35rem] px-6 pt-14 lg:px-8"
           style={{
-            backgroundImage:
-              "url(https://www.thegef.org/sites/default/files/styles/banner_image/public/2021-11/topics_banner_blendedfinance.jpg?h=4e9a1ef8&itok=wkLt635t)",
+            backgroundImage: `url(${CivilFinal})`,
           }}
         >
-          <h2 className="text-5xl text-teal-700 opacity-50 p-3 w-[45rem]">
+          <h2 className="text-5xl text-white p-3 w-[45rem]">
             {" "}
             if you're not making mistakes then you're not doing anything
           </h2>
@@ -33,7 +32,7 @@ function Home() {
           </h5>
         </div>
       </div>
-      <div className="lg:fixed bottom-0 w-full">
+      <div className="lg:relative fixed bottom-0 w-full">
         <Footer />
       </div>
     </div>

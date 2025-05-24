@@ -5,9 +5,9 @@ import Navbar from "../components/Navbar";
 export default function About() {
   return (
     <>
-      <div className="bg-teal-100">
+      <div className="lg:min-h-full h-screen">
         <Navbar/>
-          <div className="relative isolate overflow-hidden bg-teal-100 px-6 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <div className="relative isolate overflow-hidden px-6 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-25 py-60 lg:text-left">
               <h2 className="text-3xl font-semibold tracking-tight text-balance text-black sm:text-4xl">
                 About Us
